@@ -80,7 +80,7 @@ const MainPage = () => {
   if (!browserSupportsSpeechRecognition) {
     return (
       <div className="text-red-600">
-        Browser doesn't support speech recognition.
+        Browser doesnt support speech recognition.
       </div>
     );
   }
