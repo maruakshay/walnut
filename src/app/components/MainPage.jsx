@@ -20,7 +20,6 @@ const MainPage = () => {
       method: "POST",
       body: JSON.stringify({ ...patient, name: name }),
     });
-    console.log(fetchData, "fetch");
   };
 
   const commands = [
