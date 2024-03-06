@@ -1,0 +1,24 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+}
+
+
+model Patient {
+   id String @id @default(cuid())
+    patientName String @unique
+     scheduleDate String
+     scheduleTime String
+    doctor Doctor?
+}
+model Doctor {
+    id String @id @default(cuid())
+    scheduleDate Json[]
+    patientName String @unique
+    patient Patient @relation(fields: [patientName] , references: [patientName])
+}
